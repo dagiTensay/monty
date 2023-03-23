@@ -15,7 +15,7 @@ stack_t *push(stack_t **head, const int n)
 {
 
 	stack_t *temp, *node = malloc(sizeof(stack_t));
-	
+
 
 	if (node == NULL)
 	{
