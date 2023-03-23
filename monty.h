@@ -34,5 +34,5 @@ typedef struct instruction_s
 extern FILE *file;
 
 stack_t *push(stack_t **head, const int n);
-void pall(stack_t **stack, unsigned int line_number);
+int pall(stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */
