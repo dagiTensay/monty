@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	FILE *file;
 	stack_t *head = NULL;
 	int i, line_number = 1;
-	unsigned int value;
 
 	if (argc != 2)
 	{
@@ -38,7 +37,7 @@ int main(int argc, char *argv[])
 		}
 		if (strcmp(opcodes[0], "push") == 0)
 		{
-			if (value == 0 || opcodes[1] == NULL)
+			if (opcodes[1] == 0 || opcodes[1] == NULL)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
@@ -47,7 +46,7 @@ int main(int argc, char *argv[])
 		}
 		line_number++;
 	}
-	pall(&head, value);
+	pall(&head, line_number);
 	fclose(file);
 	return (0);
 }
