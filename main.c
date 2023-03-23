@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 	stack_t *head = NULL;
 	/*struct instruction_s *instruction;*/
 	char *token;
-	int i;
+	int i, line_number = 1;
 	unsigned int value;
 
 	char *opcodes[2];
@@ -47,8 +47,14 @@ int main(int argc, char* argv[])
 		if (strcmp(opcodes[0], "push") == 0)
 		{
 			value = atoi(opcodes[1]);
-			push(&head, value);
+			push(&head, line_number);
+			if (value == 0 || opcodes[1] == NULL)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
 		}
+		line_number++;
 	}
 	pall(&head, value);
 	fclose(file);

@@ -15,10 +15,14 @@ stack_t *push(stack_t **head, const int n)
 {
 
 	stack_t *temp, *node = malloc(sizeof(stack_t));
-
+	
 
 	if (node == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+
 	node->n = n;
 	node->prev = NULL;
 	node->next = NULL;
